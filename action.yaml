@@ -36,3 +36,8 @@ runs:
         version: ${{ inputs.lava-version }}
         config: ${{ inputs.lava-config }}
         comment-pr: ${{ inputs.comment-pr }}
+    - name: Show results
+      run: |
+        echo "Lava status: ${{ steps.lava.outputs.status }}"
+        cat "${{ steps.lava.outputs.report }}"
+        cat "${{ steps.lava.outputs.metrics }}"
